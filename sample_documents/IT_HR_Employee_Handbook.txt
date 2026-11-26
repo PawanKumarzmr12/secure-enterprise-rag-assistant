@@ -43,6 +43,7 @@ Employees are expected to:
 - Mark attendance through the HR portal.
 - Inform their manager about unexpected delays.
 - Obtain approval before changing scheduled shifts.
+- update the latest documet 
 
 Employees working in support operations may have
 different shift schedules depending on business needs.
