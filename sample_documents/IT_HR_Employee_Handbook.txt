@@ -1,0 +1,248 @@
+
+---
+title: IT and HR Employee Handbook
+document_id: EMP-HANDBOOK-001
+department: hr
+visibility: public
+version: 1
+status: active
+effective: 2026-11-01
+updated: 2026-11-15
+owner: human-resources
+reviewed_by: hr-director
+classification: internal
+tags:
+  - employee
+  - HR
+  - IT
+  - leave
+  - attendance
+  - security
+---
+
+# IT and HR Employee Handbook
+
+## 1. Purpose
+
+This handbook explains the company's employee policies,
+working arrangements, leave rules, IT security standards,
+and workplace responsibilities.
+
+It applies to all permanent employees and approved
+contractors unless a specific employment agreement
+states otherwise.
+
+## 2. Working Hours and Attendance
+
+Standard working hours are Monday to Friday,
+9:00 AM to 6:00 PM.
+
+Employees are expected to:
+- Complete 8 working hours per day.
+- Follow their assigned shift timings.
+- Mark attendance through the HR portal.
+- Inform their manager about unexpected delays.
+- Obtain approval before changing scheduled shifts.
+
+Employees working in support operations may have
+different shift schedules depending on business needs.
+
+## 3. Work From Home Policy
+
+Employees may work remotely with manager approval.
+
+Guidelines:
+- Remote work must be requested through the HR portal.
+- Employees must remain available during working hours.
+- Company VPN must be used when accessing internal systems.
+- Confidential company information must not be stored
+  on personal devices.
+- Managers may request office attendance for team meetings.
+
+## 4. Leave Policy
+
+Employees can apply for leave through the HR portal.
+
+### 4.1 Annual Leave
+
+Employees receive 24 days of annual paid leave
+per calendar year.
+
+Planned leave should be submitted at least
+5 business days in advance.
+
+### 4.2 Sick Leave
+
+Employees receive 10 days of sick leave per year.
+
+For absence exceeding 2 consecutive working days,
+a medical certificate may be requested by HR.
+
+### 4.3 Emergency Leave
+
+Employees may request emergency leave for
+unexpected personal or family situations.
+
+The employee should inform their manager as soon
+as reasonably possible.
+
+### 4.4 Leave Approval
+
+The reporting manager reviews leave requests
+based on team availability and project requirements.
+
+HR maintains the official leave balance.
+
+## 5. IT Equipment and Asset Management
+
+The company may provide:
+- Laptop
+- Monitor
+- Keyboard and mouse
+- Company mobile phone
+- VPN access
+- Other approved IT equipment
+
+Employees must:
+- Keep company equipment secure.
+- Avoid installing unauthorised software.
+- Report damaged or lost devices to IT.
+- Return all company assets during exit clearance.
+
+## 6. Password and Account Security
+
+Employees must follow these security requirements:
+
+- Use unique passwords for company accounts.
+- Enable multi-factor authentication.
+- Never share passwords with colleagues.
+- Never store credentials in source code.
+- Lock laptops when away from their desks.
+- Report suspicious login attempts immediately.
+
+IT administrators will periodically review
+user access permissions.
+
+## 7. Data Protection
+
+Company information is classified into four categories:
+
+| Classification | Description |
+|---|---|
+| Public | Approved for external sharing |
+| Internal | For employee use |
+| Confidential | Sensitive business information |
+| Restricted | Credentials and highly sensitive information |
+
+Employees must only access information
+required for their job responsibilities.
+
+Confidential and restricted information must not
+be shared through personal email or public
+file-sharing platforms.
+
+## 8. IT Support and Incident Reporting
+
+Employees should create a service desk ticket
+for technical issues.
+
+Examples:
+- Laptop not working
+- VPN connection failure
+- Password reset
+- Application access issue
+- Email connectivity problem
+
+Critical production incidents must be reported
+immediately to the IT operations team.
+
+The ticket should include:
+- Employee ID
+- Application or system name
+- Error description
+- Time of occurrence
+- Screenshot, if appropriate
+
+Passwords and authentication tokens must never
+be included in support tickets.
+
+## 9. Performance and Appraisal
+
+Employee performance is reviewed annually.
+
+The review considers:
+- Technical skills
+- Quality of work
+- Delivery commitments
+- Team collaboration
+- Communication
+- Learning and development
+
+Managers provide feedback and identify
+development opportunities.
+
+Salary revisions are subject to company policy,
+performance, business conditions, and approval.
+
+## 10. Training and Development
+
+Employees are encouraged to participate in
+technical and professional training.
+
+Training requests must be approved by the
+reporting manager.
+
+Employees attending company-sponsored training
+may be required to complete assigned assessments.
+
+## 11. Code of Conduct
+
+All employees are expected to:
+- Treat colleagues respectfully.
+- Maintain professional communication.
+- Protect confidential information.
+- Avoid conflicts of interest.
+- Follow company policies.
+- Report unethical or inappropriate behaviour.
+
+## 12. Resignation and Exit Process
+
+Employees planning to resign must submit
+a formal resignation through the HR portal.
+
+The notice period is determined by the
+employment agreement.
+
+Before the final working day, employees must:
+- Complete knowledge transfer.
+- Return company equipment.
+- Close pending service requests.
+- Complete project handover.
+- Obtain IT and HR clearance.
+
+Final settlement is processed according
+to company policy and applicable law.
+
+## 13. Policy Exceptions
+
+Any exception to this handbook requires
+documented approval from the relevant
+department head and HR.
+
+The company may revise these policies
+when business or regulatory requirements change.
+
+## 14. Contact Information
+
+HR Support: hr@example.com
+IT Helpdesk: it-support@example.com
+Security Team: security@example.com
+
+Working Hours: Monday to Friday,
+9:00 AM to 6:00 PM.
+
+---
+
+Document ID: EMP-HANDBOOK-001
+Version: 1.0
+Document Owner: Human Resources

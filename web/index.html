@@ -1,0 +1,593 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internal AI Assistant</title>
+
+<style>
+:root {
+  --primary: #5546d9;
+  --primary-dark: #4335bd;
+  --bg: #f5f6fc;
+  --surface: #ffffff;
+  --text: #20243a;
+  --muted: #747b91;
+  --border: #e8eaf2;
+  --success: #16865b;
+  --danger: #d64b4b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 35px 24px 60px;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #6859ef, #4335bd);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  font-weight: 800;
+  box-shadow: 0 5px 15px #5546d933;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 5px 0 0;
+}
+
+.header-badge {
+  background: #e9f8f1;
+  color: #16865b;
+  padding: 8px 13px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* Intro */
+
+.welcome {
+  background: linear-gradient(120deg, #5143cf, #7668ed);
+  color: white;
+  border-radius: 17px;
+  padding: 25px 28px;
+  margin-bottom: 25px;
+  box-shadow: 0 9px 24px #5546d926;
+}
+
+.welcome h2 {
+  font-size: 21px;
+  margin: 0 0 8px;
+}
+
+.welcome p {
+  margin: 0;
+  color: #eeecff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Cards */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 23px;
+  margin-bottom: 21px;
+  box-shadow: 0 3px 12px #252b4d08;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 19px;
+}
+
+.card-icon {
+  width: 39px;
+  height: 39px;
+  background: #f0efff;
+  color: var(--primary);
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  font-size: 19px;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Upload */
+
+.upload-area {
+  background: #fafaff;
+  border: 1.5px dashed #c8c4f5;
+  border-radius: 12px;
+  padding: 25px 18px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.upload-icon {
+  font-size: 30px;
+  margin-bottom: 9px;
+}
+
+.upload-area p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 7px 0 14px;
+}
+
+input[type=file] {
+  max-width: 100%;
+  font-size: 13px;
+}
+
+/* Buttons */
+
+button {
+  border: none;
+  background: var(--primary);
+  color: white;
+  padding: 11px 19px;
+  font-size: 13px;
+  font-weight: 650;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Table */
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 17px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+th {
+  background: #f7f7fc;
+  color: #747b91;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 700;
+}
+
+th, td {
+  text-align: left;
+  padding: 13px 11px;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  color: #454b61;
+}
+
+tbody tr:hover {
+  background: #fafaff;
+}
+
+code {
+  background: #f0efff;
+  color: #5546d9;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+/* Ask */
+
+.ask-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+input[type=text], select {
+  border: 1px solid var(--border);
+  background: #fafbff;
+  padding: 12px 13px;
+  font-size: 13px;
+  border-radius: 9px;
+  outline: none;
+  color: var(--text);
+}
+
+input[type=text]:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px #5546d91a;
+}
+
+input[type=text] {
+  flex: 1;
+  min-width: 0;
+}
+
+select {
+  min-width: 165px;
+  cursor: pointer;
+}
+
+/* Chat */
+
+.turn {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 19px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 12px #252b4d08;
+}
+
+.question {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.question small {
+  color: var(--primary);
+  font-size: 11px;
+  background: #f0efff;
+  padding: 4px 8px;
+  border-radius: 15px;
+  margin-left: 5px;
+}
+
+.answer {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #454b61;
+  white-space: pre-wrap;
+}
+
+.cite {
+  border-top: 1px solid var(--border);
+  margin-top: 17px;
+  padding-top: 13px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.cite div {
+  margin-bottom: 8px;
+}
+
+.warn {
+  background: #fff4f3;
+  border-left: 3px solid var(--danger);
+  color: #b33c3c;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 9px;
+}
+
+details {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 15px;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+details pre {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  background: #f7f7fc;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+  padding: 18px;
+}
+
+/* Footer */
+
+.footer {
+  text-align: center;
+  color: #9298a9;
+  font-size: 11px;
+  margin-top: 30px;
+}
+
+/* Mobile */
+
+@media(max-width: 650px) {
+  .container {
+    padding: 22px 14px 40px;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .header-badge {
+    font-size: 10px;
+  }
+
+  .welcome {
+    padding: 21px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .ask-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input[type=text], select, .ask-form button {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">✦</div>
+      <div>
+        <h1>Internal Assistant</h1>
+        <p class="subtitle">Enterprise Knowledge Intelligence</p>
+      </div>
+    </div>
+    <div class="header-badge">● Secure Workspace</div>
+  </header>
+
+  <div class="welcome">
+    <h2>Your knowledge, one conversation away.</h2>
+    <p>
+      Ask questions about company policies, delivery, processes and
+      documentation. Get answers grounded in authorized documents
+      with transparent source references.
+    </p>
+  </div>
+
+  <section class="card">
+    <div class="card-header">
+      <div class="card-icon">📚</div>
+      <div>
+        <h2>Knowledge Documents</h2>
+        <div class="card-description">
+          Upload and manage your searchable knowledge base.
+        </div>
+      </div>
+    </div>
+
+    <form id="uploadForm">
+      <div class="upload-area">
+        <div class="upload-icon">☁️</div>
+        <strong>Upload your documents</strong>
+        <p>Choose a Markdown or TXT file to index into the assistant.</p>
+        <input type="file" id="file" accept=".md,.txt" required>
+        <br><br>
+        <button type="submit">＋ Upload and Index</button>
+      </div>
+    </form>
+
+    <div class="card-description" id="uploadNote">
+      Nothing is indexed until you upload it. The same text under a
+      different file name is recognised and skipped.
+    </div>
+
+    <div class="table-wrapper">
+      <table id="documents">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Version</th>
+            <th>Status</th>
+            <th>Visibility</th>
+            <th>From File</th>
+            <th>Chunks</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <div class="card-icon">💬</div>
+      <div>
+        <h2>Ask the Assistant</h2>
+        <div class="card-description">
+          Enter your question and select your access profile.
+        </div>
+      </div>
+    </div>
+
+    <form id="askForm" class="ask-form">
+      <input
+        type="text"
+        id="question"
+        placeholder="Ask about policy, delivery, errors, leave..."
+        autocomplete="off"
+        required
+      >
+
+      <select id="username">
+        <option value="alice" selected>Alice · Engineering</option>
+        <option value="bob">Bob · HR</option>
+        <option value="carol">Carol · Finance</option>
+        <option value="guest">Guest · External</option>
+      </select>
+
+      <button type="submit">Ask ↗</button>
+    </form>
+  </section>
+
+  <div id="thread"></div>
+
+  <footer class="footer">
+    Internal Assistant · Secure Knowledge Access
+  </footer>
+
+</div>
+
+<script>
+const thread = document.getElementById("thread");
+
+async function loadDocuments() {
+  const response = await fetch("/documents");
+  const data = await response.json();
+  const body = document.querySelector("#documents tbody");
+
+  body.innerHTML = data.documents.map(d => `
+    <tr>
+      <td>${escapeHtml(d.title)}</td>
+      <td>v${d.version}</td>
+      <td>${escapeHtml(d.status)}</td>
+      <td>${escapeHtml(d.visibility)}${d.visibility === "restricted" ? " (" + escapeHtml(d.department) + ")" : ""}</td>
+      <td><code>${escapeHtml(d.source)}</code></td>
+      <td>${d.chunks}</td>
+    </tr>`).join("") || `<tr><td colspan="6" class="empty-state">Nothing indexed yet. Upload a document to begin.</td></tr>`;
+}
+
+document.getElementById("uploadForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const input = document.getElementById("file");
+  const note = document.getElementById("uploadNote");
+  if (!input.files.length) return;
+
+  const body = new FormData();
+  body.append("file", input.files[0]);
+
+  note.textContent = "Indexing " + input.files[0].name + "...";
+  const response = await fetch("/documents", { method: "POST", body });
+  const data = await response.json();
+
+  note.textContent = response.ok ? data.message : "Rejected: " + data.detail;
+  input.value = "";
+  loadDocuments();
+});
+
+document.getElementById("askForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const question = document.getElementById("question").value;
+  const username = document.getElementById("username").value;
+  document.getElementById("question").value = "";
+
+  const turn = document.createElement("div");
+  turn.className = "turn";
+  turn.innerHTML = `<div class="question">${escapeHtml(question)} <small>(${username})</small></div><div class="answer">Thinking...</div>`;
+  thread.prepend(turn);
+
+  const response = await fetch("/ask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question, username })
+  });
+  const data = await response.json();
+
+  const citations = data.citations.map(c =>
+    `<div>${c.grounded ? "✓ Verified" : "⚠ NOT VERIFIED"} &middot; <code>${escapeHtml(c.source)}</code> &middot; ${escapeHtml(c.status)} &middot; reviewed ${escapeHtml(c.updated_on)}</div>`
+  ).join("");
+
+  const warnings = data.warnings.map(w => `<div class="warn">${escapeHtml(w)}</div>`).join("");
+
+  turn.innerHTML = `
+    <div class="question">${escapeHtml(question)} <small>(${username})</small></div>
+    <div class="answer">${escapeHtml(data.answer)}</div>
+    <div class="cite">${citations}</div>
+    ${warnings}
+    <details><summary>What it did</summary><pre>${escapeHtml(data.trace.join("\n"))}</pre></details>
+  `;
+});
+
+function escapeHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = String(text);
+  return div.innerHTML;
+}
+
+loadDocuments();
+</script>
+
+</body>
+</html>
